@@ -20,7 +20,7 @@ public class TestCarValidation {
     private Validator validator;
 
     @Before
-    public void initTest() {
+    public void initValidator() {
         validator = new Validator();
     }
 
