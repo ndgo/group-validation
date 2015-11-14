@@ -11,7 +11,7 @@ import javax.validation.groups.Default;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestBeanValidation {
+public class TestCarValidation {
 
     public static final String DEFAULT_OWNER = "OWNER-1";
     private Validator validator;
