@@ -14,7 +14,7 @@ import java.util.List;
 public class TestCarValidation {
 
     public static final String DEFAULT_OWNER = "OWNER-1";
-    public static final long CAR_PRICE = 1L;
+    public static final long CAR_PRICE = 1;
     public static final long ONE_YEAR = 1;
     public static final long TWENTY_FIVE_YEARS = 25;
     private Validator validator;
