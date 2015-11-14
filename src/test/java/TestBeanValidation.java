@@ -49,7 +49,6 @@ public class TestBeanValidation {
     public void testOneYearOldCar() {
         Car car = getDefaultCar();
         car.setAge(1);
-        // Проверить что
         Assert.assertEquals("[]", validator.validate(car, OneYearOldCarCheck.class));
     }
 
