@@ -14,6 +14,9 @@ import java.util.List;
 public class TestCarValidation {
 
     public static final String DEFAULT_OWNER = "OWNER-1";
+    public static final long CAR_PRICE = 1L;
+    public static final long ONE_YEAR = 1;
+    public static final long TWENTY_FIVE_YEARS = 25;
     private Validator validator;
 
     @Before
@@ -23,7 +26,7 @@ public class TestCarValidation {
 
     public Car getDefaultCar() {
         Car car = new Car();
-        car.setPrice(1L);
+        car.setPrice(CAR_PRICE);
         car.setCarModel(CarModel.BENTLEY);
         List<String> owners = new ArrayList<String>();
         owners.add(DEFAULT_OWNER);
@@ -40,7 +43,7 @@ public class TestCarValidation {
     @Test
     public void testOldCarAge() {
         Car car = getDefaultCar();
-        car.setAge(25);
+        car.setAge(TWENTY_FIVE_YEARS);
         Assert.assertEquals("[]", validator.validate(car, OldCarCheck.class));
         // машине 25 лет, но не 1 год
         Assert.assertNotEquals("[]", validator.validate(car, OneYearOldCarCheck.class));
@@ -49,14 +52,14 @@ public class TestCarValidation {
     @Test
     public void testOneYearOldCar() {
         Car car = getDefaultCar();
-        car.setAge(1);
+        car.setAge(ONE_YEAR);
         Assert.assertEquals("[]", validator.validate(car, OneYearOldCarCheck.class));
     }
 
     @Test
     public void testOneYearOldCarAndNonGroupedConstraints() {
         Car car = getDefaultCar();
-        car.setAge(1);
+        car.setAge(ONE_YEAR);
         // проверить поля с аннотациями, относящиеся к группе по умолчанию, а так же поля, с аннотацииями,
         // относящиеся к группе OneYearOldCarCheck
         Assert.assertEquals("[]", validator.validate(car, Default.class, OneYearOldCarCheck.class));
