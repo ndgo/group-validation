@@ -13,6 +13,7 @@ import java.util.List;
 
 public class TestBeanValidation {
 
+    public static final String DEFAULT_OWNER = "OWNER-1";
     private Validator validator;
 
     @Before
@@ -25,7 +26,7 @@ public class TestBeanValidation {
         car.setPrice(1L);
         car.setCarModel(CarModel.BENTLEY);
         List<String> owners = new ArrayList<String>();
-        owners.add("OWNER-1");
+        owners.add(DEFAULT_OWNER);
         car.setOwners(owners);
         return car;
     }

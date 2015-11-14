@@ -12,17 +12,17 @@ import java.util.List;
 
 @Data
 public class Car {
+    public static final int MINIMUM_NUMBER_OF_OWNERS = 1;
+    public static final int ONE_YEAR_OLD = 1;
+    public static final int TWENTY_YEARS_OLD = 20;
     @NotNull
     Long price;
     @NotNull
     CarModel carModel;
-    //    не работает
-//    @Min(1)
-//    Long age;
-    @Min.List({@Min(value = 20, groups = OldCarCheck.class), @Min(value = 1, groups = OneYearOldCarCheck.class)})
-    @Max(value = 1, groups = OneYearOldCarCheck.class)
+    @Min.List({@Min(value = TWENTY_YEARS_OLD, groups = OldCarCheck.class), @Min(value = ONE_YEAR_OLD, groups = OneYearOldCarCheck.class)})
+    @Max(value = ONE_YEAR_OLD, groups = OneYearOldCarCheck.class)
     long age;
     @NotNull
-    @Size(min = 1)
+    @Size(min = MINIMUM_NUMBER_OF_OWNERS)
     List<String> owners;
 }
