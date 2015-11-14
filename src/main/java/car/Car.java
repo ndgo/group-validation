@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 public class Car {
-    public static final int MINIMUM_NUMBER_OF_OWNERS = 1;
+    public static final int MINIMAL_NUMBER_OF_OWNERS = 1;
     public static final int ONE_YEAR_OLD = 1;
     public static final int TWENTY_YEARS_OLD = 20;
     @NotNull
@@ -23,6 +23,6 @@ public class Car {
     @Max(value = ONE_YEAR_OLD, groups = OneYearOldCarCheck.class)
     long age;
     @NotNull
-    @Size(min = MINIMUM_NUMBER_OF_OWNERS)
+    @Size(min = MINIMAL_NUMBER_OF_OWNERS)
     List<String> owners;
 }
